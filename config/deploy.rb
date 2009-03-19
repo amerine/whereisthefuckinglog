@@ -1,15 +1,12 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+default_run_options[:pty] = true
 
-# If you aren't deploying to /u/apps/#{application} on the target
-# servers (which is the default), you can specify the actual location
-# via the :deploy_to variable:
-# set :deploy_to, "/var/www/#{application}"
+set :application, "whereisthefuckinglog.com"
+set :repository,  "git@github.com:amerine/whereisthefuckinglog.git"
+set :scm, "git"
+set :user, "mark"
 
-# If you aren't using Subversion to manage your source code, specify
-# your SCM below:
-# set :scm, :subversion
 
-role :app, "your app-server here"
-role :web, "your web-server here"
-role :db,  "your db-server here", :primary => true
+set :deploy_to, "/www/whereisthefuckinglog.com"
+
+
+server "whereisthefuckinglog.com", :app, :web, :db, :primary => true
